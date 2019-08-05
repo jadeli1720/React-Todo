@@ -8,6 +8,7 @@ import Todo from './Todo';
         <div className="todo-list">
             {props.todoItem.map(item => (
                 <Todo key={item.id} item={item}
+                toggleTask={props.toggleTask}
                 />
             ))}
         </div>

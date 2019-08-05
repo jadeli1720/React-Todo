@@ -4,6 +4,8 @@ import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 
+import './components/TodoComponents/Todo.css';
+
 const todoData = [
   {
     task: 'Organize Garage',
@@ -28,27 +30,29 @@ class App extends React.Component {
     };
   }
 
-  // this.setState({
-  //   todoItem: this.state.todoItem.map(item => {
-  //     if (item.id === id) {
-  //       return {
-  //         ...item,
-  //         completed: !item.completed
-  //       };
-  //     } else {
-  //       return item;
-  //     }
-  //   })
-  // })
+  toggleTask = id => {
+    console.log(id);
+    this.setState({
+      todoItem: this.state.todoItem.map(task => {
+        if (task.id === id) {
+          return {
+            ...task,
+            completed: !task.completed
+          };
+        } else {
+          return task;
+        }
+      })
+    });
+  }
 
   //Update the todo item on our state object
   //use this.setState
   //loop through the arr
   //find which element we clicked update the ""
-
-  addItem = itemName => {
+  addItem = taskName => {
     const newItem = {
-      task: itemName,
+      task: taskName,
       id: Date.now(),
       completed: false
     };
@@ -64,10 +68,12 @@ class App extends React.Component {
           <h2>Welcome to your Todo App!</h2>
         </div>
         <TodoList
-          todoItem={this.state.todoItem}//passing todoItem as props to child components
+          todoItem={this.state.todoItem}
+          toggleTask={this.toggleTask}
         />
         <TodoForm
-          addItem ={this.addItem}
+          addItem={this.addItem}
+          
         />
       </div>
     );
