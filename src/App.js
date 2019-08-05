@@ -27,6 +27,36 @@ class App extends React.Component {
       todoItem: todoData
     };
   }
+
+  // this.setState({
+  //   todoItem: this.state.todoItem.map(item => {
+  //     if (item.id === id) {
+  //       return {
+  //         ...item,
+  //         completed: !item.completed
+  //       };
+  //     } else {
+  //       return item;
+  //     }
+  //   })
+  // })
+
+  //Update the todo item on our state object
+  //use this.setState
+  //loop through the arr
+  //find which element we clicked update the ""
+
+  addItem = itemName => {
+    const newItem = {
+      task: itemName,
+      id: Date.now(),
+      completed: false
+    };
+    this.setState({
+      todoItem: [...this.state.todoItem, newItem]
+    })
+  }
+
   render() {
     return (
       <div className="App">
@@ -36,7 +66,9 @@ class App extends React.Component {
         <TodoList
           todoItem={this.state.todoItem}//passing todoItem as props to child components
         />
-        <TodoForm/>
+        <TodoForm
+          addItem ={this.addItem}
+        />
       </div>
     );
   }
