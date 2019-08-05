@@ -8,9 +8,22 @@ class TodoForm extends React.Component {
         }
     }
 
+    //event handlers:
+
+    handleChange = e => {
+        this.setState({
+            [e.target.name]: e.target.value
+        });
+        console.log("handleChange", e.target.name, e.target.value)//logging changes when user is typing in the input field
+    }
+
+    submitItem = e => {
+        e.preventDefault();
+    }
+
     render() {
         return (
-            <form>
+            <form onSubmit={this.submitItem}>
                 <input
                     type="text"
                     value={this.state.item}
