@@ -2,6 +2,7 @@ import React from 'react';
 
 //components
 import TodoList from './components/TodoComponents/TodoList';
+import TodoForm from './components/TodoComponents/TodoForm';
 
 const todoData = [
   {
@@ -35,6 +36,7 @@ class App extends React.Component {
         <TodoList
           todoItem={this.state.todoItem}//passing todoItem as props to child components
         />
+        <TodoForm/>
       </div>
     );
   }
