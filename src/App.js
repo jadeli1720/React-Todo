@@ -1,5 +1,8 @@
 import React from 'react';
 
+//components
+import TodoList from './components/TodoComponents/TodoList';
+
 const todoData = [
   {
     task: 'Organize Garage',
@@ -25,8 +28,11 @@ class App extends React.Component {
   }
   render() {
     return (
-      <div>
-        <h2>Welcome to your Todo App!</h2>
+      <div className="App">
+        <div className="header">
+          <h2>Welcome to your Todo App!</h2>
+        </div>
+        <TodoList/>
       </div>
     );
   }
