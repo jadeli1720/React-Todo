@@ -23,7 +23,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-
+      todoItem: todoData
     };
   }
   render() {
@@ -32,7 +32,9 @@ class App extends React.Component {
         <div className="header">
           <h2>Welcome to your Todo App!</h2>
         </div>
-        <TodoList/>
+        <TodoList
+          todoItem={this.state.todoItem}//passing todoItem as props to child components
+        />
       </div>
     );
   }
